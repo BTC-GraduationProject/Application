@@ -24,6 +24,7 @@ const AddList = ({route, navigation}) => {
 
     // dropdown picker용 state
     const [categoryOpen, setCategoryOpen] = useState(false);
+    const [categoryZidx, setCategoryZidx] = useState(3);
     const [categoryItems, setCategoryItems] = useState([ // 카테고리 종류
         { label: "유제품", value: 1 },
         { label: "육류", value: 2 },
@@ -36,6 +37,7 @@ const AddList = ({route, navigation}) => {
         { label: "기타", value: 99 },
     ]);
     const [storageTypeOpen, setStorageTypeOpen] = useState(false);
+    const [storageTypeZidx, setStorageTypeZidx] = useState(2);
     const [storageTypeItems, setStorageTypeItems] = useState([ // 저장방식 종류
         { label: "실온보관", value: 1 },
         { label: "냉동보관", value: 2 },
@@ -46,9 +48,13 @@ const AddList = ({route, navigation}) => {
     // picker가 열리면 다른 picker가 닫히도록
     const onCategoryOpen = () => {
         setStorageTypeOpen(false);
+        setCategoryZidx(3);
+        setStorageTypeZidx(2);
     }
     const onStorageOpen = () => {
         setCategoryOpen(false);
+        setCategoryZidx(2);
+        setStorageTypeZidx(3);
     }
 
     useEffect(() => {
@@ -257,7 +263,7 @@ const AddList = ({route, navigation}) => {
                             </View>
                         </View>
                         {/* 카테고리 입력 */}
-                        <View style={[styles.addContent, {zIndex: 3}]}>
+                        <View style={[styles.addContent, {zIndex: categoryZidx}]}>
                             <Text style={styles.addContentName}>카테고리 :</Text>
                             <View style={styles.addPickerInput}>
                                 {/* <Text>카테고리 선택</Text> */}
@@ -288,7 +294,7 @@ const AddList = ({route, navigation}) => {
                             </View>
                         </View>
                         {/* 저장방식 입력 */}
-                        <View style={[styles.addContent, {zIndex: 2}]}>
+                        <View style={[styles.addContent, {zIndex: storageTypeZidx}]}>
                             <Text style={styles.addContentName}>저장방식 :</Text>
                             <View style={styles.addPickerInput}>
                                 <DropDownPicker

@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     borderColor: '#485460',
     //marginBottom: -2,
     marginVertical: 2,
-    height: 80,
+    height: 80, // 원래 80
     justifyContent: 'center',
     flexDirection: 'row',
     //IOS

@@ -81,7 +81,7 @@ const UserSetting = ({navigation}) => {
     .catch(error => {console.log('Fetch Error', error);})
   }
 
-  const pressDelete = () => { // 식재료 삭제 요청
+  const pressDelete = () => { // 계정 삭제 요청
     fetch(`https://www.bigthingiscoming.shop/app/users/${usrIdx}/delete`, {
         method: "PATCH",
         headers: {

@@ -30,6 +30,8 @@
             "로그인 성공", response.result.userName + '님 환영합니다.', 
             [{ text: 'OK', 
               onPress: () => {
+                setInputID('');
+                setInputPW('');
                 navigation.navigate('MainTab', {
                   idx: response.result.idx,
                   name: response.result.userName,

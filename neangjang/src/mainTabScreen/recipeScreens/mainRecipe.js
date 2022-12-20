@@ -35,7 +35,7 @@ const MainRecipe = ({navigation}) => {
   useEffect(() => {
     getRecipeData();  
     //console.log(recipeData);
-  }, []);
+  }, [recipeData]); // recipeData
 
   const renderItem = ({item}) => {
     if (searchText === '') {  // 아무것도 입력하지 않았을 떄
@@ -106,11 +106,11 @@ const MainRecipe = ({navigation}) => {
          keyExtractor={(item) => item.idx}
        />
      </View>
-     <ActionButton
+     {/* <ActionButton
         //buttonColor="rgba(30,100,230,1)"
         buttonColor="#b6d2f2"
         onPress={() => navigation.navigate('AddRecipe')}
-     />
+     /> */}
    </SafeAreaView>
   </TouchableWithoutFeedback>
   );

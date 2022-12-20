@@ -17,13 +17,13 @@ const MainSetting = ({navigation}) => {
                 <Text style={styles.contentTitle}>사용자 정보 설정</Text>
                 <Ionicon name='chevron-forward' size={30} style={styles.contentIcon}/>
             </TouchableOpacity>
-            <TouchableOpacity
+            {/* <TouchableOpacity
                 style={styles.content}
                 onPress={()=>navigation.navigate('NoticeSetting')}
             >
                 <Text style={styles.contentTitle}>알림 설정</Text>
                 <Ionicon name='chevron-forward' size={30} style={styles.contentIcon}/>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             {/* <TouchableOpacity
                 style={styles.content}
                 onPress={()=>navigation.navigate('DisplaySetting')}

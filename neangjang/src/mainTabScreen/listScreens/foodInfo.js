@@ -13,17 +13,21 @@ const FoodInfo = ({route, navigation}) => {
   if (categoryStr === 1) {
     setCategoryStr("유제품");
   } else if (categoryStr === 2) {
-    setCategoryStr("돼지");
-  } else if (categoryStr === 3) {
-    setCategoryStr("소");
-  } else if (categoryStr === 4) {
-    setCategoryStr("닭");
+    setCategoryStr("육류");
   } else if (categoryStr === 5) {
     setCategoryStr("가공식품");
   } else if (categoryStr === 6) {
     setCategoryStr("빵");
   } else if (categoryStr === 7) {
     setCategoryStr("생선");
+  } else if (categoryStr === 8) {
+    setCategoryStr("채소");
+  } else if (categoryStr === 9) {
+    setCategoryStr("갑각류");
+  } else if (categoryStr === 10) {
+    setCategoryStr("음료");
+  } else if (categoryStr === 99) {
+    setCategoryStr("기타");
   }
   // 저장방식 텍스트로 변환
   if (storageTypeStr === 1) {

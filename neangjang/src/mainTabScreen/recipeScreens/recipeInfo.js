@@ -10,7 +10,7 @@ const RecipeInfo = ({route, navigation}) => {
   const [makeTime, setMakeTime] = useState('');
   const [photoUrl, setPhotoUrl] = useState('');
   const [recipeUrl, setRecipeUrl] = useState('');
-  const [igName, setIgName] = useState('');
+  const [igName, setIgName] = useState([]);
 
   const { recipeIdx } = route.params;
 
@@ -30,11 +30,24 @@ const RecipeInfo = ({route, navigation}) => {
         setMakeTime(response.result[0][0].makeTime);
         setPhotoUrl(response.result[1][0].photoUrl);
         setRecipeUrl(response.result[2][0].recipeUrl);
-        setIgName(response.result[3][0].igName);
-        console.log(detailText);
+        getIgList(response.result[3]);
+        //console.log("AAAAAAAA", response.result[3])
+        //console.log(detailText);
     })
     .catch(error => {console.log('Fetch Error', error);})
   }, []);
+
+  const getIgList = (igList) => {
+    var temp = []
+    for (var i=0; i < igList.length; i++){
+        if (i==0)
+            temp.push(igList[i].igName);
+        else
+            temp.push(", " + igList[i].igName);
+    }
+    setIgName(temp);
+    console.log(igName);
+  }
 
   const renderParseText = ({item}) => {
     return (
@@ -53,14 +66,14 @@ const RecipeInfo = ({route, navigation}) => {
                 <Image style={styles.photo} resize='cover' source={{url : photoUrl}}/>
             </View>
             <View style={styles.nameView}>
-                <Text style={[styles.name, {fontSize: 10}]}>{usrName} 님의 레시피</Text>
+                {/* <Text style={[styles.name, {fontSize: 10}]}>{usrName} 님의 레시피</Text> */}
                 <Text style={styles.name}>{recipeName}</Text>
                 <Text style={[styles.name, {fontSize: 15, marginTop: 15}]}>조리시간 : {makeTime}</Text>
-                <View style={styles.url}>
+                {/* <View style={styles.url}>
                     <TouchableOpacity>
                         <Text style={styles.urlText}>URL</Text>
                     </TouchableOpacity>
-                </View>
+                </View> */}
             </View>
         </View>
         <View style={styles.subInfo}>
@@ -70,7 +83,7 @@ const RecipeInfo = ({route, navigation}) => {
                 </View>
             </View>
             <View style={styles.subCont}>
-                <Text style={{fontSize: 20, fontWeight: '600', color: '#485460',}}>{igName}</Text>
+                <Text style={{fontSize: 15, fontWeight: '600', color: '#485460',}}>{igName}</Text>
             </View>
         </View>
         <View style={styles.detailInfo}>
